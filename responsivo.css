@@ -3,6 +3,9 @@
   .navegacao {
     display: none;
   }
+  p {
+    text-align: center;
+  }
   .interface {
     flex-direction: column;
     align-items: center;
@@ -15,6 +18,9 @@
   .cabecalho .txt h1,
   h1 {
     font-size: 2rem;
+  }
+  .cabecalho .txt {
+    text-align: center;
   }
   .cabecalho .txt span {
     font-size: 20px;
@@ -62,7 +68,7 @@
     gap: 2rem;
   }
   .detalhes .tab.active {
-    max-height: 525px;
+    max-height: 710px;
   }
 
   section.jornada .detalhes {
@@ -75,17 +81,18 @@
   }
   .licenciatura .box-licenciatura,
   .experiencia .box-experiencia {
-    height: auto;
-    width: 300px;
-    padding: 10px;
-    display: flex;
+    display: flex !important;
     flex-direction: column;
+    align-items: center;
     gap: 1rem;
-    overflow-y: scroll;
+    height: auto;
+    width: auto;
+    max-height: 400px;
+    overflow-y: auto;
   }
   .licenciatura .box-licenciatura::-webkit-scrollbar,
   .experiencia .box-experiencia::-webkit-scrollbar {
-    display: block;
+    display: block !important;
   }
 
   .card {
@@ -111,5 +118,35 @@
 
   .projectos .cotacao .box article {
     font-size: 15px;
+  }
+}
+@media screen and (max-width: 1000px) {
+  section .txt h1 {
+    text-align: center;
+    margin-bottom: -10px;
+    margin-top: -10px;
+  }
+  .detalhes .tab.active {
+    max-height: 710px;
+  }
+  .cabecalho .txt {
+    padding-bottom: 10px;
+  }
+
+  .paragrafo-sobre {
+    width: auto;
+  }
+
+  .licenciatura .box-licenciatura,
+  .experiencia .box-experiencia {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 10px;
+    height: auto;
+    width: auto;
+  }
+  section.jornada .detalhes {
+    height: auto;
+    padding: 10px;
   }
 }
