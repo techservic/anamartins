@@ -1,0 +1,107 @@
+/* Responsivo */
+@media (max-width: 768px) {
+  .navegacao {
+    display: none;
+  }
+  .interface {
+    flex-direction: column;
+    align-items: center;
+  }
+  h2 {
+    font-size: 1.5rem;
+    text-align: center;
+    margin-bottom: 1rem;
+  }
+  .cabecalho .txt h1,
+  h1 {
+    font-size: 2rem;
+  }
+  .cabecalho .txt span {
+    font-size: 20px;
+  }
+  .cabecalho {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+  }
+  .cabecalho img {
+    width: 200px;
+  }
+  .cabecalho .txt p.descricao {
+    font-size: 18px;
+    text-align: center;
+  }
+  .paragrafo-sobre {
+    font-size: 18px;
+    text-align: center;
+    padding: 1rem;
+    width: 300px;
+  }
+
+  .txt-sobre {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 0;
+    flex-direction: column-reverse;
+  }
+
+  .txt-sobre .foto-sobre img {
+    width: 200px !important;
+  }
+  .sobre .txt-sobre .redes-sociais {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  section.jornada .interface {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 2rem;
+  }
+  .detalhes .tab.active {
+    max-height: 525px;
+  }
+
+  section.jornada .detalhes {
+    height: 540px;
+  }
+  .detalhes .box {
+    padding: 10px;
+    width: 300px;
+    height: auto;
+  }
+  .licenciatura .box-licenciatura,
+  .experiencia .box-experiencia {
+    height: auto;
+    width: 300px;
+    padding: 10px;
+  }
+
+  .card {
+    width: 300px;
+    height: auto;
+  }
+  .contactos .interface {
+    gap: 0;
+  }
+
+  .projectos .cotacao {
+    padding: 0 1rem;
+    align-items: baseline;
+  }
+
+  .projectos .cotacao .box i {
+    font-size: 1.5rem;
+  }
+
+  .projectos .cotacao .box p {
+    font-size: 1rem;
+  }
+
+  .projectos .cotacao .box article {
+    font-size: 15px;
+  }
+}

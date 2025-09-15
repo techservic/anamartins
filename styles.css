@@ -169,6 +169,7 @@ section .txt h1 {
 
 .sobre {
   padding-top: 6rem;
+  width: 100%;
 }
 .txt-sobre {
   display: flex;
