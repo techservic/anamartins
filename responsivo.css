@@ -3,6 +3,7 @@
   .navegacao {
     display: none;
   }
+
   p {
     text-align: center;
   }
@@ -105,9 +106,14 @@
 
   .projectos .cotacao {
     padding: 0 1rem;
-    align-items: baseline;
+    align-items: center;
   }
-
+  .projectos .cotacao .box {
+    width: 250px;
+    height: auto;
+    padding: 15px;
+    text-align: center;
+  }
   .projectos .cotacao .box i {
     font-size: 1.5rem;
   }

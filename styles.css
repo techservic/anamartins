@@ -73,6 +73,9 @@ header {
   z-index: 11;
   padding: 1.5rem;
 }
+.menu-mobile {
+  display: none;
+}
 .navegacao {
   display: flex;
   justify-content: space-between;
@@ -574,4 +577,60 @@ footer a {
   50% {
     transform: translateY(-20px);
   }
+}
+/*....................................*/
+
+/*Reveal Animations*/
+.reveal-titulo {
+  visibility: hidden;
+}
+.reveal-img-topo {
+  visibility: hidden;
+}
+
+.reveal-txt-topo {
+  visibility: hidden;
+}
+.reveal-txt-sobre {
+  visibility: hidden;
+}
+.reveal-foto-sobre {
+  visibility: hidden;
+}
+.reveal-instagram,
+.reveal-facebook,
+.reveal-linkedin {
+  visibility: hidden;
+}
+.reveal-txt-jornada {
+  visibility: hidden;
+}
+.reveal-detalhes {
+  visibility: hidden;
+}
+.reveal-box {
+  visibility: hidden;
+}
+.reveal-button1,
+.reveal-button2,
+.reveal-button3,
+.reveal-button4 {
+  visibility: hidden;
+}
+.reveal-card1,
+.reveal-card2,
+.reveal-card3,
+.reveal-card4,
+.reveal-card5,
+.reveal-card6 {
+  visibility: hidden;
+}
+.reveal-cotacao {
+  visibility: hidden;
+}
+.reveal-formulario {
+  visibility: hidden;
+}
+.reveal-redes {
+  visibility: hidden;
 }

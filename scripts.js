@@ -43,3 +43,11 @@ function showPanel(panelId) {
     const btn = document.getElementById(panelId);
     if (btn) btn.classList.add('ativo');
 }
+
+/*MEnu-MObile*/
+const menuToggle = document.getElementById('menu-toggle');
+const nav = document.getElementById('nav');
+
+menuToggle.addEventListener('click', () => {
+    nav.classList.toggle('active');
+});
