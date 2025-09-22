@@ -73,9 +73,7 @@ header {
   z-index: 11;
   padding: 1.5rem;
 }
-.menu-mobile {
-  display: none;
-}
+
 .navegacao {
   display: flex;
   justify-content: space-between;
@@ -627,4 +625,108 @@ footer a {
 }
 .reveal-redes {
   visibility: hidden;
+}
+/*Estilo Menu-Mobile*/
+.logo-mobile span {
+  color: var(--branco);
+  font-weight: 700;
+  font-size: 1.2rem;
+  text-align: center;
+  background-color: var(--verde);
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+.menu-mobile li a {
+  color: var(--branco);
+  text-decoration: none;
+  display: block;
+  padding: 20px 30px;
+  font-size: 24px;
+  transition: all 0.3s ease-in-out;
+}
+.menu-mobile li a:hover {
+  background: linear-gradient(90deg, var(--verde), var(--azul));
+  color: var(--branco);
+  box-shadow: 0 10px 20px rgba(0, 184, 147, 0.2);
+}
+.menu-mobile li {
+  list-style-type: none;
+}
+.menu-mobile {
+  margin-top: 10px;
+  padding: 10px;
+  width: 100%;
+  height: 100vh;
+  background-color: #0a192f87;
+  position: absolute;
+  backdrop-filter: blur(10px);
+  top: 77px;
+  left: 0;
+}
+/* Garante que o menu mobile é mostrado quando ativo.
+   Usa !important para sobrepor regras de desktop se necessário. */
+.menu-mobile.active {
+  display: block !important;
+  animation: slideDown 220ms ease;
+}
+
+/* animação opcional */
+@keyframes slideDown {
+  from {
+    opacity: 0;
+    transform: translateY(-8px);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+/* button menu-toggle */
+header button {
+  width: 40px;
+  height: 40px;
+  background: transparent;
+  border: 3px solid var(--branco);
+  border-radius: 8px;
+  cursor: pointer;
+}
+button span.bar {
+  position: relative;
+  display: block;
+  width: 20px;
+  height: 2px;
+  margin: 5px auto;
+  background-color: var(--branco);
+  transition: all 0.3s ease-in-out;
+}
+header .interface {
+  display: flex;
+  justify-content: space-between;
+  flex-direction: row;
+  align-items: center;
+}
+
+/* estado ativo → vira "X" */
+#btn-menu.active .bar:nth-child(1) {
+  transform: rotate(45deg);
+  top: 8px;
+  width: 30px;
+}
+#btn-menu.active .bar:nth-child(2) {
+  opacity: 0;
+}
+#btn-menu.active .bar:nth-child(3) {
+  transform: rotate(-45deg);
+  top: -5px;
+  width: 30px;
+}
+.menu-mobile,
+.logo-mobile,
+.btn-menu {
+  display: none;
 }

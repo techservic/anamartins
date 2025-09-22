@@ -1,53 +1,102 @@
-function showPanel(panelId) {
-    // Esconder todos os painéis
-    const panels = document.querySelectorAll('.detalhes > div');
-    panels.forEach(panel => {
-        panel.style.display = "none";
-    });
+// scripts.js — versão robusta e compatível com index.html
+(function () {
+  'use strict';
 
-    // Mostrar o painel selecionado
-    const activePanel = document.getElementById(panelId + "-panel");
-    if (activePanel) {
-        activePanel.style.display = "block";
+  // toggle interno (usa IDs do HTML: #btn-menu e #menu-mobile)
+  function _toggleMenu() {
+    const btn = document.getElementById('btn-menu');
+    const menu = document.getElementById('menu-mobile');
+    if (!btn || !menu) return;
+
+    const willOpen = !menu.classList.contains('active');
+
+    menu.classList.toggle('active', willOpen);
+    btn.classList.toggle('active', willOpen);
+    btn.setAttribute('aria-expanded', String(willOpen));
+    document.body.style.overflow = willOpen ? 'hidden' : '';
+  }
+
+  // expor globalmente para o onclick inline do HTML (onclick="menuShow()")
+  window.menuShow = _toggleMenu;
+
+  // Código que só corre depois do DOM estar pronto
+  document.addEventListener('DOMContentLoaded', () => {
+    const btn = document.getElementById('btn-menu');
+    const menu = document.getElementById('menu-mobile');
+
+    // Se o botão NÃO tem um onclick inline (atributo), anexa listener.
+    // Isto evita o problema de "duplo clique" (toggle duas vezes).
+    if (btn && !btn.hasAttribute('onclick')) {
+      btn.addEventListener('click', _toggleMenu);
     }
 
-    // Atualizar o estado dos botões
-    const buttons = document.querySelectorAll('.botao button');
-    buttons.forEach(button => {
-        button.classList.remove('ativo');
+    // Fechar ao clicar num link dentro do menu
+    if (menu) {
+      menu.addEventListener('click', (e) => {
+        // Se clicou num <a> (ou nódulo filho), fecha
+        const a = e.target.closest('a');
+        if (a) {
+          menu.classList.remove('active');
+          if (btn) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+          document.body.style.overflow = '';
+          return;
+        }
+
+        // Se clicou exatamente no overlay (fora do <nav>) fecha
+        if (e.target === menu) {
+          menu.classList.remove('active');
+          if (btn) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+          document.body.style.overflow = '';
+        }
+      });
+    }
+
+    // Fechar com ESC
+    document.addEventListener('keydown', (e) => {
+      if (e.key === 'Escape' || e.key === 'Esc') {
+        if (menu && menu.classList.contains('active')) {
+          menu.classList.remove('active');
+          if (btn) {
+            btn.classList.remove('active');
+            btn.setAttribute('aria-expanded', 'false');
+          }
+          document.body.style.overflow = '';
+        }
+      }
     });
 
-    const activeButton = document.getElementById(panelId);
-    if (activeButton) {
-        activeButton.classList.add('ativo');
+    /* -----------------------------
+       TABS - "Jornada" (compatível com onclick inline)
+       HTML usa: onclick="showPanel('licenciatura')"
+       ----------------------------- */
+    function showPanel(panelId) {
+      const panels = document.querySelectorAll('.detalhes .tab');
+      panels.forEach(p => p.classList.remove('active'));
+
+      const target = document.getElementById(panelId + '-panel');
+      if (target) {
+        // forçar reflow para reiniciar animação se necessário
+        void target.offsetWidth;
+        target.classList.add('active');
+      }
+
+      // atualizar buttons
+      const buttons = document.querySelectorAll('.botao button');
+      buttons.forEach(b => b.classList.remove('ativo'));
+      const activeBtn = document.getElementById(panelId);
+      if (activeBtn) activeBtn.classList.add('ativo');
     }
-}
 
-// Mostrar o painel de licenciatura por defeito
-showPanel('licenciatura');
+    // expor global
+    window.showPanel = showPanel;
 
-function showPanel(panelId) {
-    const panels = document.querySelectorAll('.detalhes .tab');
-    panels.forEach(p => p.classList.remove('active'));
-
-    const target = document.getElementById(panelId + '-panel');
-    if (!target) return;
-
-    // forçar reflow para garantir que a animação reinicia (útil se clicar duas vezes rápido)
-    void target.offsetWidth;
-
-    target.classList.add('active');
-
-    // atualizar botão ativo (opcional)
-    document.querySelectorAll('.botao button').forEach(b => b.classList.remove('ativo'));
-    const btn = document.getElementById(panelId);
-    if (btn) btn.classList.add('ativo');
-}
-
-/*MEnu-MObile*/
-const menuToggle = document.getElementById('menu-toggle');
-const nav = document.getElementById('nav');
-
-menuToggle.addEventListener('click', () => {
-    nav.classList.toggle('active');
-});
+    // mostra painel default
+    showPanel('licenciatura');
+  });
+})();

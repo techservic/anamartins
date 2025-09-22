@@ -1,11 +1,23 @@
 /* Responsivo */
 @media (max-width: 768px) {
-  .navegacao {
+  .navegacao .menu,
+  .navegacao .logo {
     display: none;
+  }
+  /* garantir que o menu mobile só apareça com a classe .active */
+  .logo-mobile,
+  .btn-menu {
+    display: block;
+  }
+  .menu-mobile.active {
+    display: block;
   }
 
   p {
     text-align: center;
+  }
+  header.interface {
+    width: 100% !important;
   }
   .interface {
     flex-direction: column;
