@@ -16,8 +16,8 @@
   p {
     text-align: center;
   }
-  header.interface {
-    width: 100% !important;
+  header {
+    padding: 10px 20px;
   }
   .interface {
     flex-direction: column;

@@ -150,10 +150,11 @@ revelar.reveal('.reveal-formulario', {
     duration: 2000,
     distance: '90px',
     origin: 'left'
+
 });
 revelar.reveal('.reveal-redes', {
     duration: 2000,
     distance: '90px',
-    origin: 'right'
+
 });
 

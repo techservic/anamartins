@@ -77,7 +77,7 @@ header {
 .navegacao {
   display: flex;
   justify-content: space-between;
-  gap: 20rem;
+  gap: 53rem;
   align-items: center;
 }
 .navegacao li a:hover {
@@ -103,7 +103,7 @@ header {
   font-weight: 500;
   position: relative;
   padding: 0.5rem 0;
-  transition: all 0.5s;
+  transition: all 0.5s ease-in-out;
 }
 
 .menu-link::after {
@@ -664,7 +664,7 @@ footer a {
   background-color: #0a192f87;
   position: absolute;
   backdrop-filter: blur(10px);
-  top: 77px;
+  top: 60px;
   left: 0;
 }
 /* Garante que o menu mobile é mostrado quando ativo.
@@ -729,4 +729,20 @@ header .interface {
 .logo-mobile,
 .btn-menu {
   display: none;
+}
+/* Estado ativo dos links do menu */
+.menu-link.active {
+  color: var(--verde); /* muda cor */
+  font-weight: bold;
+  position: relative;
+}
+
+.menu-link.active::after {
+  content: "";
+  position: absolute;
+  bottom: -3px;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: var(--verde);
 }
