@@ -140,11 +140,7 @@ revelar.reveal('.reveal-card6', {
     delay: 3000,
     distance: '90px',
 });
-revelar.reveal('.reveal-cotacao', {
-    duration: 2000,
-    delay: 3000,
-    distance: '90px',
-});
+
 /*Contactos*/
 revelar.reveal('.reveal-formulario', {
     duration: 2000,
@@ -157,4 +153,3 @@ revelar.reveal('.reveal-redes', {
     distance: '90px',
 
 });
-

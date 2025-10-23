@@ -116,27 +116,6 @@
     gap: 0;
   }
 
-  .projectos .cotacao {
-    padding: 0 1rem;
-    align-items: center;
-  }
-  .projectos .cotacao .box {
-    width: 250px;
-    height: auto;
-    padding: 15px;
-    text-align: center;
-  }
-  .projectos .cotacao .box i {
-    font-size: 1.5rem;
-  }
-
-  .projectos .cotacao .box p {
-    font-size: 1rem;
-  }
-
-  .projectos .cotacao .box article {
-    font-size: 15px;
-  }
 }
 @media screen and (max-width: 1000px) {
   section .txt h1 {

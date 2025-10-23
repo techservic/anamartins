@@ -127,3 +127,5 @@ document.addEventListener("DOMContentLoaded", () => {
   window.addEventListener("scroll", onScroll);
   onScroll(); // ativar o correto logo ao carregar
 });
+
+
